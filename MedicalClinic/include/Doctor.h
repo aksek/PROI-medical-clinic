@@ -11,6 +11,7 @@ class Doctor
         Spclty specialty;
     public:
         Doctor();
+	Doctor(std::string nam);
         Doctor(std::string nam, Spclty spec);
         std::string getname() {return name;}
 };

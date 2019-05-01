@@ -10,7 +10,7 @@
 class Clinic {
     private:
         template <typename T>
-        class comp {
+        class comp {				//class template
             bool operator() (T &a, T &b) const {
                 return a.getname().compare(b.getname());
             }
@@ -21,11 +21,13 @@ class Clinic {
         std::set<Patient, comp<Patient> > patients;
 
     public:
-        bool add(Doctor &doc);
-        bool rm(Doctor &doc);
-        bool add(Patient &pat);
-        bool rm(Patient &pat);
-
+	void mock();
+        bool operator+=(Doctor &doc);		//operator overload
+        bool operator-=(Doctor &doc);
+        bool operator+=(Patient &pat);
+        bool operator-=(Patient &pat);
+	bool printDoctors();			//iterator, function overload
+	bool printDoctors(Spclty spec);	
 };
 
 #endif // CLINIC_H

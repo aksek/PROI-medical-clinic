@@ -1,11 +1,6 @@
-#include "../include/Patient.h"
+#include "Patient.h"
 
 Patient::Patient()
 {
     //ctor
-}
-
-Patient::~Patient()
-{
-    //dtor
 }
