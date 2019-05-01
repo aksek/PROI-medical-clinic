@@ -11,8 +11,9 @@ class Clinic {
     private:
         template <typename T>
         class comp {				//class template
-            bool operator() (T &a, T &b) const {
-                return a.getname().compare(b.getname());
+	public:
+            bool operator() (const T &a, const T &b) const {
+                return a.name.compare(b.name);
             }
         };
 
@@ -22,12 +23,12 @@ class Clinic {
 
     public:
 	void mock();
-        bool operator+=(Doctor &doc);		//operator overload
-        bool operator-=(Doctor &doc);
-        bool operator+=(Patient &pat);
-        bool operator-=(Patient &pat);
-	bool printDoctors();			//iterator, function overload
-	bool printDoctors(Spclty spec);	
+        Clinic& operator+=(Doctor &doc);		//operator overload
+        Clinic& operator-=(Doctor &doc);
+        Clinic& operator+=(Patient &pat);
+        Clinic& operator-=(Patient &pat);
+	void printDoctors();			//iterator, function overload
+	void printDoctors(Doctor::Spclty spec);	
 };
 
 #endif // CLINIC_H

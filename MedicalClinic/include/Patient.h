@@ -8,13 +8,13 @@
 class Patient
 {
     private:
-        std::string name;
 	std::vector<std::string> diagnoses;
     public:
-        Patient();
+	const std::string name;
+        Patient(){}
         Patient(std::string nam);
 	std::string getname() {return name;}
-	Patient& diagnose (const std::string diagnosis);
+	Patient& diagnose (std::string &diagnosis);
 };
 
 #endif // PATIENT_H

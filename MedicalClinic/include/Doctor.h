@@ -1,19 +1,21 @@
+#include <iostream>
 #include <string>
 
 #ifndef DOCTOR_H
 #define DOCTOR_H
 
-enum Spclty {generalPractitioner, ophthalmologist, dentist, pediatrist};
 class Doctor
 {
     private:
-        std::string name;
-        Spclty specialty;
+
     public:
-        Doctor();
-	Doctor(std::string nam);
-        Doctor(std::string nam, Spclty spec);
-        std::string getname() {return name;}
+	enum Spclty {GP, ophthalmologist, dentist, pediatrist, unspecified};
+	const Spclty specialty;
+        const std::string name;
+        Doctor(): specialty(unspecified), name("unknown") {}
+	Doctor(std::string const &nam): specialty(unspecified), name(nam) {}
+        Doctor(std::string const &nam, Spclty spec): specialty(spec), name(nam) {}
+        friend std::ostream& operator<< (std::ostream& out, const Doctor &doc);
 };
 
 #endif // DOCTOR_H

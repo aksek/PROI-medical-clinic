@@ -8,7 +8,7 @@
 class Interface {
 public:
 	void menu();
-	bool makeDoctor(std::string name, Spclty spec);
+	bool makeDoctor(std::string name, Doctor::Spclty spec);
 	bool makePatient(std::string name);
 	template <typename T>			//function template
 	bool rm(const std::string name, Clinic &clinic) {

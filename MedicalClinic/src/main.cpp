@@ -4,12 +4,11 @@
 
 using namespace std;
 
-int main()
-{
-    Clinic *clinic = new Clinic;	//dynamic allocation
-    //mock();
-    Interface interface;
-    interface.menu();
-    delete clinic;
-    return 0;
+int main() {
+	Clinic clinic;
+	clinic.mock();
+	Interface interface;
+	interface.menu();
+	//delete clinic;
+	return 0;
 }
