@@ -1,3 +1,8 @@
+
+#include <limits>
+#include <iostream>
+#include <string>
+
 #include "Clinic.h"
 #include "Doctor.h"
 #include "Patient.h"
@@ -6,16 +11,27 @@
 #define INTERFACE_H_INCLUDED
 
 class Interface {
+private:
+	Clinic clinic;
 public:
+	void test();
 	void menu();
-	bool makeDoctor(std::string name, Doctor::Spclty spec);
-	bool makePatient(std::string name);
+	Clinic& addDoctor();
+	Clinic& addPatient();
 	template <typename T>			//function template
-	bool rm(const std::string name, Clinic &clinic) {
-		T torm(name);
-		bool check = (clinic -= torm);
-		return check;
+	Clinic& rm() {
+		std::cout << "Type the name of the person to be removed" << std::endl;
+		std::string input;
+		getline(std::cin, input);
+		if (!std::cin.fail()) {
+			T torm(input);
+			return (clinic -= torm);
+			
+		} else 
+			std::cin.clear(); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		return clinic;
 	}
+	void details();
 };
 
 #endif // INTERFACE_H_INCLUDED

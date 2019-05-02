@@ -19,9 +19,6 @@ void Clinic::mock() {
 	Doctor doc3("The Doctor", Doctor::GP);
 	*this += doc3;
 	
-	printDoctors();
-	printDoctors(Doctor::GP);
-	
 	vector<string> pats = {"John Doe", "Jane Doe", "Dennis", "Polly the Parrot", "Blackbeard", "Zaphod Beeblebrox"};
 	vector<string> diags = {"flu", "common cold", "deceased", "pretty sure that one's a parrot", "amputated leg", "absence of brain"};
 	for (unsigned int i = 0; i < pats.size(); ++i) {
@@ -29,22 +26,6 @@ void Clinic::mock() {
 		pat1.diagnose(diags[i]);
 		*this += pat1;
 	}
-	
-	Patient pat2("John Doe");
-	
-	auto it = patients.find(pat2);
-	cout << *it << endl;
-	
-	printPatients();
-	
-	Patient pat3 = *it;
-	*this -= pat3;
-	printPatients();
-	
-	Doctor doc("Gregory House");
-	*this -= doc;
-	
-	printDoctors();
 }
 
 Clinic& Clinic::operator+=(Doctor &doc) {
@@ -83,4 +64,10 @@ void Clinic::printPatients() {
 	for (set<Patient>::iterator it = patients.begin(); it != patients.end(); ++it)
 		cout << *it << endl;
 	cout << endl;
+}
+
+void Clinic::detailsOn(std::string const &name) {
+	Patient pat(name);
+	auto it = patients.find(pat);
+	cout << *it << std::endl;
 }

@@ -23,13 +23,14 @@ class Clinic {
 
     public:
 	void mock();
-        Clinic& operator+=(Doctor &doc);		//operator overload
+	Clinic& operator+=(Doctor &doc);		//operator overload
         Clinic& operator-=(Doctor &doc);
         Clinic& operator+=(Patient &pat);
         Clinic& operator-=(Patient &pat);
 	void printDoctors();			//iterator, function overload
 	void printDoctors(int spec);
 	void printPatients();
+	void detailsOn(std::string const &name);
 };
 
 #endif // CLINIC_H
