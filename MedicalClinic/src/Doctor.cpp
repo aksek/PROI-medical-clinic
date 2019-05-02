@@ -4,6 +4,9 @@
 
 using namespace std;
 
+bool Doctor::operator==(Doctor &other) {
+	return this->name == other.name;
+}
 
 ostream& operator<< (ostream &out, const Doctor &doc) {
 	const char* s = 0;

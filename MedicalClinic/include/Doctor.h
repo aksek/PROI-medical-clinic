@@ -15,6 +15,7 @@ class Doctor
         Doctor(): specialty(unspecified), name("unknown") {}
 	Doctor(std::string const &nam): specialty(unspecified), name(nam) {}
         Doctor(std::string const &nam, Spclty spec): specialty(spec), name(nam) {}
+        bool operator==(Doctor &other);
         friend std::ostream& operator<< (std::ostream& out, const Doctor &doc);
 };
 

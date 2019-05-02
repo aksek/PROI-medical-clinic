@@ -12,8 +12,8 @@ class Clinic {
         template <typename T>
         class comp {				//class template
 	public:
-            bool operator() (const T &a, const T &b) const {
-                return a.name.compare(b.name);
+            bool operator()(const T &a, const T &b) const {
+                return (a.name).compare(b.name) < 0;
             }
         };
 
@@ -28,7 +28,8 @@ class Clinic {
         Clinic& operator+=(Patient &pat);
         Clinic& operator-=(Patient &pat);
 	void printDoctors();			//iterator, function overload
-	void printDoctors(Doctor::Spclty spec);	
+	void printDoctors(int spec);
+	void printPatients();
 };
 
 #endif // CLINIC_H

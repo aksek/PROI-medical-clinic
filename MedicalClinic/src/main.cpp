@@ -5,10 +5,10 @@
 using namespace std;
 
 int main() {
-	Clinic clinic;
-	clinic.mock();
+	Clinic* clinic = new Clinic;
+	clinic->mock();
 	Interface interface;
 	interface.menu();
-	//delete clinic;
+	delete clinic;
 	return 0;
 }
