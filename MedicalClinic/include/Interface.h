@@ -32,6 +32,8 @@ public:
 		return clinic;
 	}
 	void details();
+	void diagnose();
+	void prescribe();
 };
 
 #endif // INTERFACE_H_INCLUDED

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include "Patient.h"
 
@@ -11,14 +12,29 @@ Patient& Patient::diagnose(string const &diagnosis) {
 	return *this;
 }
 
+Patient& Patient::prescribe(string const &prescription) {
+	prescriptions.push_back(prescription);
+	return *this;
+}
+
+Patient& Patient::operator= (Patient other) {
+	swap(diagnoses, other.diagnoses);
+	swap(prescriptions, other.prescriptions);
+	return *this;
+}
+
 bool Patient::operator==(Patient &other) {
 	return this->name == other.name;
 }
 
 ostream& operator<< (ostream &out, const Patient &pat) {
-	out << pat.name << "\nDiagnoses:\n";
+	out << "\nName:\n" << setw(40) << pat.name << "\nDiagnoses:\n";
 	for (unsigned int i = 0; i < pat.diagnoses.size(); ++i) {
-		out << pat.diagnoses[i] << '\n';
+		out << setw(40) << pat.diagnoses[i] << '\n';
+	}
+	out << "Prescriptions:\n";
+	for (unsigned int i = 0; i < pat.prescriptions.size(); ++i) {
+		out << setw(40) << pat.prescriptions[i] << '\n';
 	}
 	return out;
 }

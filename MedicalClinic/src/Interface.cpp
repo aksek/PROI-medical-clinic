@@ -13,7 +13,7 @@ using namespace std;
 
 
 void Interface::menu() {
-        vector<string> opts = {"fail", "add a patient", "remove a patient", "add a doctor", "remove a doctor", "show all doctors", "show details on a patient", "exit"};
+        vector<string> opts = {"fail", "add a doctor", "remove adoctor", "show all doctors", "add a patient", "remove a patient", "show details on a patient", "add diagnosis", "add prescription", "exit"};
         for (unsigned int i = 1; i < opts.size(); i++) {
             cout << i << ": " << opts[i] << endl;
         }
@@ -30,23 +30,23 @@ void Interface::menu() {
 			cerr << "something went wrong" << endl;
 			break;
 		case 1:
-			addPatient();
-			menu();
-			break;
-		case 2:
-			rm<Patient>();
-			menu();
-			break;
-		case 3:
 			addDoctor();
 			menu();
 			break;
-		case 4:
+		case 2:
 			rm<Doctor>();
 			menu();
 			break;
-		case 5:
+		case 3:
 			this->clinic.printDoctors();
+			menu();
+			break;
+		case 4:
+			addPatient();
+			menu();
+			break;
+		case 5:
+			rm<Patient>();
 			menu();
 			break;
 		case 6:
@@ -54,6 +54,14 @@ void Interface::menu() {
 			menu();
 			break;
 		case 7:
+			diagnose();
+			menu();
+			break;
+		case 8:
+			prescribe();
+			menu();
+			break;
+		case 9:
 			break;
 		default:
 			cout << "unknown command" << endl;
@@ -107,8 +115,41 @@ void Interface::details() {
 	cout << "Type the name of the patient" << endl;
 	string input;
 	getline(cin, input);
-	if (!cin.fail())
-		this->clinic.detailsOn(input);
-	else 
+	if (!cin.fail()) {
+		if (!this->clinic.detailsOn(input))
+			cerr << "This patient does not exist\n";
+	} else 
 		cin.clear(); cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+}
+
+void Interface::diagnose() {
+	cout << "Type the name of the patient" << endl;
+	string name;
+	getline(cin, name);
+	if (!cin.fail()) {
+		cin.clear(); cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+	}
+	cout << "Type the diagnosis" << endl;
+	string diagnosis;
+	getline(cin, diagnosis);
+	if (!cin.fail()) {
+		cin.clear(); cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+	}
+	clinic.diagnose(name, diagnosis);
+}
+
+void Interface::prescribe() {
+	cout << "Type the name of the patient" << endl;
+	string name;
+	getline(cin, name);
+	if (!cin.fail()) {
+		cin.clear(); cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+	}
+	cout << "Type the prescription" << endl;
+	string prescription;
+	getline(cin, prescription);
+	if (!cin.fail()) {
+		cin.clear(); cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+	}
+	clinic.prescribe(name, prescription);
 }

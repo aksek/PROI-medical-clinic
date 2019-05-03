@@ -30,7 +30,9 @@ class Clinic {
 	void printDoctors();			//iterator, function overload
 	void printDoctors(int spec);
 	void printPatients();
-	void detailsOn(std::string const &name);
+	bool detailsOn(std::string const &name);
+	void diagnose(std::string const &name, std::string const &diagnosis);
+	void prescribe(std::string const &name, std::string const &prescription);
 };
 
 #endif // CLINIC_H

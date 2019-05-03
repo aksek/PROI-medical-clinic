@@ -21,9 +21,11 @@ void Clinic::mock() {
 	
 	vector<string> pats = {"John Doe", "Jane Doe", "Dennis", "Polly the Parrot", "Blackbeard", "Zaphod Beeblebrox"};
 	vector<string> diags = {"flu", "common cold", "deceased", "pretty sure that one's a parrot", "amputated leg", "absence of brain"};
+	vector<string> pres = {"climbing trees", "brain surgery", "vitamin C", "aspirin", "apirin", "new brain"};
 	for (unsigned int i = 0; i < pats.size(); ++i) {
 		Patient pat1(pats[i]);
 		pat1.diagnose(diags[i]);
+		pat1.prescribe(pres[i]);
 		*this += pat1;
 	}
 }
@@ -66,8 +68,34 @@ void Clinic::printPatients() {
 	cout << endl;
 }
 
-void Clinic::detailsOn(std::string const &name) {
+bool Clinic::detailsOn(std::string const &name) {
 	Patient pat(name);
 	auto it = patients.find(pat);
-	cout << *it << std::endl;
+	if (it != patients.end()) {
+		cout << *it << std::endl;
+		return true;
+	} else 
+		return false;
+}
+
+void Clinic::diagnose(std::string const &name, std::string const &diagnosis) {
+	Patient pat(name);
+	auto it = patients.find(pat);
+	if (it != patients.end()) {
+		pat = *it;
+		patients.erase(it);
+	}
+	pat.diagnose(diagnosis);
+	*this += pat;
+}
+
+void Clinic::prescribe(std::string const &name, std::string const &prescription) {
+	Patient pat(name);
+	auto it = patients.find(pat);
+	if (it != patients.end()) {
+		pat = *it;
+		patients.erase(it);
+	}
+	pat.prescribe(prescription);
+	*this += pat;
 }

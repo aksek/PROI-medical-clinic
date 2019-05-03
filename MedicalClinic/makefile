@@ -19,6 +19,5 @@ bin:
 clean: 
 	rm -r build
 	rm -r bin
-	rm include/*.gch
 	
 .PHONY: clean
