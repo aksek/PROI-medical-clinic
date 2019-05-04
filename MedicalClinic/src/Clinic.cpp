@@ -1,3 +1,8 @@
+/* Assignment:  Project #2
+ *     Author:  Aniela Kosek, 300234
+ *     Grader: Wiktor Kuśmirek
+ */
+
 #include <iostream>
 #include <set>
 #include <string>
@@ -54,12 +59,12 @@ Clinic& Clinic::operator-=(Patient &pat) {
 void Clinic::printDoctors() {
 	for (int i = 0; i < nSpecialties; ++i)
 		printDoctors(i);
+	cout << endl;
 }
 
 void Clinic::printDoctors(int spec) {
 	for (set<Doctor>::iterator it = doctors[spec].begin(); it != doctors[spec].end(); ++it)
 		cout << *it << endl;
-	cout << endl;
 }
 
 void Clinic::printPatients() {

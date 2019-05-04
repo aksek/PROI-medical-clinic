@@ -1,3 +1,8 @@
+/* Assignment:  Project #2
+ *     Author:  Aniela Kosek, 300234
+ *     Grader: Wiktor Kuśmirek
+ */
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -7,6 +12,12 @@ using namespace std;
 
 Patient::Patient(string nam): name(nam){}
 
+Patient& Patient::operator= (Patient other) {
+	swap(diagnoses, other.diagnoses);
+	swap(prescriptions, other.prescriptions);
+	return *this;
+}
+
 Patient& Patient::diagnose(string const &diagnosis) {
 	diagnoses.push_back(diagnosis);
 	return *this;
@@ -14,12 +25,6 @@ Patient& Patient::diagnose(string const &diagnosis) {
 
 Patient& Patient::prescribe(string const &prescription) {
 	prescriptions.push_back(prescription);
-	return *this;
-}
-
-Patient& Patient::operator= (Patient other) {
-	swap(diagnoses, other.diagnoses);
-	swap(prescriptions, other.prescriptions);
 	return *this;
 }
 

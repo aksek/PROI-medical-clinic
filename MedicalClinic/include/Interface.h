@@ -1,4 +1,9 @@
 
+/* Assignment:  Project #2
+ *     Author:  Aniela Kosek, 300234
+ *     Grader: Wiktor Kuśmirek
+ */
+
 #include <limits>
 #include <iostream>
 #include <string>
@@ -14,11 +19,11 @@ class Interface {
 private:
 	Clinic clinic;
 public:
-	void test();
 	void menu();
+	void test() {clinic.mock();}
 	Clinic& addDoctor();
 	Clinic& addPatient();
-	template <typename T>			//function template
+	template <typename T>
 	Clinic& rm() {
 		std::cout << "Type the name of the person to be removed" << std::endl;
 		std::string input;
@@ -34,6 +39,7 @@ public:
 	void details();
 	void diagnose();
 	void prescribe();
+	inline void checkInput();
 };
 
 #endif // INTERFACE_H_INCLUDED

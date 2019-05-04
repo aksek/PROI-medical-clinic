@@ -1,3 +1,8 @@
+/* Assignment:  Project #2
+ *     Author:  Aniela Kosek, 300234
+ *     Grader: Wiktor Kuśmirek
+ */
+
 #include <set>
 #include <string>
 #include "Doctor.h"
@@ -10,7 +15,7 @@
 class Clinic {
     private:
         template <typename T>
-        class comp {				//class template
+        class comp {
 	public:
             bool operator()(const T &a, const T &b) const {
                 return (a.name).compare(b.name) < 0;
@@ -23,11 +28,11 @@ class Clinic {
 
     public:
 	void mock();
-	Clinic& operator+=(Doctor &doc);		//operator overload
+	Clinic& operator+=(Doctor &doc);
         Clinic& operator-=(Doctor &doc);
         Clinic& operator+=(Patient &pat);
         Clinic& operator-=(Patient &pat);
-	void printDoctors();			//iterator, function overload
+	void printDoctors();
 	void printDoctors(int spec);
 	void printPatients();
 	bool detailsOn(std::string const &name);
