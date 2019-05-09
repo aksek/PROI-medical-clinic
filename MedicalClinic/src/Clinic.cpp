@@ -15,18 +15,18 @@ using namespace std;
 
 
 void Clinic::mock() {
-	Doctor doc1("Gregory House", Doctor::GP);
+	Doctor doc1("Gregory House", Doctor::pediatrist);
 	*this += doc1;
 	
 	Doctor doc2("Stephen Strange", Doctor::GP);
 	*this += doc2;
 	
-	Doctor doc3("The Doctor", Doctor::GP);
+	Doctor doc3("Leonard McCoy", Doctor::GP);
 	*this += doc3;
 	
-	vector<string> pats = {"John Doe", "Jane Doe", "Dennis", "Polly the Parrot", "Blackbeard", "Zaphod Beeblebrox"};
-	vector<string> diags = {"flu", "common cold", "deceased", "pretty sure that one's a parrot", "amputated leg", "absence of brain"};
-	vector<string> pres = {"climbing trees", "brain surgery", "vitamin C", "aspirin", "apirin", "new brain"};
+	vector<string> pats = {"John Doe", "Jane Doe", "Dennis"};
+	vector<string> diags = {"flu", "common cold", "deceased"};
+	vector<string> pres = {"vitamin C", "aspirin", "apirin"};
 	for (unsigned int i = 0; i < pats.size(); ++i) {
 		Patient pat1(pats[i]);
 		pat1.diagnose(diags[i]);
