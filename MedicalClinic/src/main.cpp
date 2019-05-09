@@ -1,6 +1,6 @@
 /* Assignment:  Project #2
  *     Author:  Aniela Kosek, 300234
- *     Grader: Wiktor Kuśmirek
+ *     Grader:  Wiktor Kuśmirek
  */
 
 #include <iostream>

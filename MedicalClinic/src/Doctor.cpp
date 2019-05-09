@@ -1,6 +1,6 @@
 /* Assignment:  Project #2
  *     Author:  Aniela Kosek, 300234
- *     Grader: Wiktor Kuśmirek
+ *     Grader:  Wiktor Kuśmirek
  */
 
 #include <iostream>
@@ -17,15 +17,15 @@ ostream& operator<< (ostream &out, const Doctor &doc) {
 	const char* s = 0;
 #define PROCESS(p) case(p): s = #p; break;
 	switch(doc.specialty) {
-		PROCESS(Doctor::GP);
-		PROCESS(Doctor::ophthalmologist);
-		PROCESS(Doctor::dentist);
-		PROCESS(Doctor::pediatrist);
-		PROCESS(Doctor::unspecified);
+		PROCESS(Doctor::Spclty::GP);
+		PROCESS(Doctor::Spclty::ophthalmologist);
+		PROCESS(Doctor::Spclty::dentist);
+		PROCESS(Doctor::Spclty::pediatrist);
+		PROCESS(Doctor::Spclty::unspecified);
 	}
 #undef PROCESS
 	string str = s;
-	size_t pos = str.find(":");
-	pos += 2;
+	size_t pos = str.find("y:");
+	pos += 3;
 	return out << doc.name << ": " << str.substr(pos);
 }

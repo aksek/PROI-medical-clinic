@@ -1,6 +1,6 @@
 /* Assignment:  Project #2
  *     Author:  Aniela Kosek, 300234
- *     Grader: Wiktor Kuśmirek
+ *     Grader:  Wiktor Kuśmirek
  */
 
 #include <iostream>
@@ -15,13 +15,13 @@ using namespace std;
 
 
 void Clinic::mock() {
-	Doctor doc1("Gregory House", Doctor::pediatrist);
+	Doctor doc1("Gregory House", Doctor::Spclty::pediatrist);
 	*this += doc1;
 	
-	Doctor doc2("Stephen Strange", Doctor::GP);
+	Doctor doc2("Stephen Strange", Doctor::Spclty::GP);
 	*this += doc2;
 	
-	Doctor doc3("Leonard McCoy", Doctor::GP);
+	Doctor doc3("Leonard McCoy", Doctor::Spclty::GP);
 	*this += doc3;
 	
 	vector<string> pats = {"John Doe", "Jane Doe", "Dennis"};
@@ -36,7 +36,8 @@ void Clinic::mock() {
 }
 
 Clinic& Clinic::operator+=(Doctor &doc) {
-	doctors[doc.specialty].insert(doc);
+	int spclty_int = static_cast<int> (doc.specialty);
+	doctors[spclty_int].insert(doc);
 	return *this;
 }
 

@@ -1,6 +1,6 @@
 /* Assignment:  Project #2
  *     Author:  Aniela Kosek, 300234
- *     Grader: Wiktor Kuśmirek
+ *     Grader:  Wiktor Kuśmirek
  */
 
 #include <iostream>
@@ -14,11 +14,11 @@ class Doctor
     private:
 
     public:
-	enum Spclty {GP, ophthalmologist, dentist, pediatrist, unspecified};
+	enum class Spclty {GP, ophthalmologist, dentist, pediatrist, unspecified};
 	const Spclty specialty;
         const std::string name;
-        Doctor(): specialty(unspecified), name("unknown") {}
-	Doctor(std::string const &nam): specialty(unspecified), name(nam) {}
+        Doctor(): specialty(Spclty::unspecified), name("unknown") {}
+	Doctor(std::string const &nam): specialty(Spclty::unspecified), name(nam) {}
         Doctor(std::string const &nam, Spclty spec): specialty(spec), name(nam) {}
         bool operator==(Doctor &other);
         friend std::ostream& operator<< (std::ostream& out, const Doctor &doc);

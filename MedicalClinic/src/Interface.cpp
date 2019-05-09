@@ -1,6 +1,6 @@
 /* Assignment:  Project #2
  *     Author:  Aniela Kosek, 300234
- *     Grader: Wiktor Kuśmirek
+ *     Grader:  Wiktor Kuśmirek
  */
 
 #include <iostream>
@@ -18,7 +18,10 @@ using namespace std;
 
 
 void Interface::menu() {
-        vector<string> opts = {"fail", "add a doctor", "remove a doctor", "show all doctors", "add a patient", "remove a patient", "show details on a patient", "add diagnosis", "add prescription", "exit"};
+        vector<string> opts = {"fail", "add a doctor", "remove a doctor", 
+        "show all doctors", "add a patient", "remove a patient", 
+        "show details on a patient", "add diagnosis", "add prescription", "exit"};
+	
         for (unsigned int i = 1; i < opts.size(); i++) {
             cout << i << ": " << opts[i] << endl;
         }
