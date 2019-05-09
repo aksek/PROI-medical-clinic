@@ -18,7 +18,8 @@ class Clinic {
         class comp {
 	public:
             bool operator()(const T &a, const T &b) const {
-                return (a.name).compare(b.name) < 0;
+		const std::string nameA = a.getName(), nameB = b.getName();
+                return (nameA).compare(nameB) < 0;
             }
         };
 
