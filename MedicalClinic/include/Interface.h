@@ -32,8 +32,9 @@ public:
 			T torm(input);
 			return (clinic -= torm);
 			
-		} else 
+		} else {
 			std::cin.clear(); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 		return clinic;
 	}
 	void details();
