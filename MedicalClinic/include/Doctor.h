@@ -11,17 +11,18 @@
 
 class Doctor
 {
-    private:
-
     public:
 	enum class Spclty {GP, ophthalmologist, dentist, pediatrist, unspecified};
-	const Spclty specialty;
         const std::string name;
-        Doctor(): specialty(Spclty::unspecified), name("unknown") {}
-	Doctor(std::string const &nam): specialty(Spclty::unspecified), name(nam) {}
-        Doctor(std::string const &nam, Spclty spec): specialty(spec), name(nam) {}
+        Doctor(): name("unknown"), specialty(Spclty::unspecified) {}
+	Doctor(std::string const &nam): name(nam), specialty(Spclty::unspecified) {}
+        Doctor(std::string const &nam, Spclty spec): name(nam), specialty(spec) {}
+        Spclty getSpclty() {return specialty;}
         bool operator==(Doctor &other);
         friend std::ostream& operator<< (std::ostream& out, const Doctor &doc);
+	
+    private:
+	const Spclty specialty;
 };
 
 #endif // DOCTOR_H

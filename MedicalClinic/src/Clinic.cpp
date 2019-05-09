@@ -36,7 +36,7 @@ void Clinic::mock() {
 }
 
 Clinic& Clinic::operator+=(Doctor &doc) {
-	int spclty_int = static_cast<int> (doc.specialty);
+	int spclty_int = static_cast<int> (doc.getSpclty());
 	doctors[spclty_int].insert(doc);
 	return *this;
 }
