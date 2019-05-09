@@ -1,8 +1,9 @@
-CC = g++
-CFLAGS = -std=c++11 -g -Wall -I include
-TARGET = bin/runner
-DEPS = include/*.h
-OBJ = build/Interface.o build/Clinic.o build/Doctor.o build/Patient.o build/main.o
+CC := g++
+CFLAGS := -std=c++11 -g -Wall -I include
+TARGET := bin/runner
+DEPS := include/*.h
+SOURCES := $(shell find src -type f -name *.cpp)
+OBJ := $(patsubst src/%, build/%, $(patsubst %.cpp, %.o, $(SOURCES)))
 
 $(TARGET) : $(OBJ) bin
 	$(CC) $(CFLAGS) $(OBJ) -o $(TARGET)
